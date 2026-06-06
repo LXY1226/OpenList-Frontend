@@ -130,7 +130,8 @@ update_package_version() {
             sed -i "s/\"version\": *\"[^\"]*\"/\"version\": \"${git_version_clean}\"/" package.json
         fi
         log_success "Package.json version updated to ${git_version_clean}"
-        version_tag="v${git_version_clean}-${commit}"
+        version_tag="dev"
+        # version_tag="v${git_version_clean}-${commit}"
         log_build "Building DEV version ${version_tag}..."
     elif [[ "$BUILD_TYPE" == "release" ]]; then
         version_tag="v${git_version_clean}"
